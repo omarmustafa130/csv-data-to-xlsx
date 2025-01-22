@@ -40,6 +40,10 @@ python generate_executables.py
 #### Fixed Window Size:
 &emsp; The application window is now set to a fixed size to prevent resizing.<br>
 
+#### Application Test
+![CSV to XLSX Option](https://github.com/omarmustafa130/csv-data-to-xlsx/blob/main/Assets/Application_test.png)
+![PDF to XLSX Option](https://github.com/omarmustafa130/csv-data-to-xlsx/blob/main/Assets/Application_test2.png)
+
 
 
 #### Enjoy :)
