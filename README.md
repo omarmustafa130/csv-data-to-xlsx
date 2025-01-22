@@ -48,5 +48,4 @@ python generate_executables.py
 
 #### Enjoy :)
 <b>OM<br><b>
-XO Inc.
 
