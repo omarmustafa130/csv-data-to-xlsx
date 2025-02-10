@@ -1,8 +1,8 @@
 import subprocess
 import sys
-import platform
 import os
 import glob
+import shutil
 
 # Install pyinstaller if not already installed
 def install_pyinstaller():
@@ -13,10 +13,10 @@ def install_pyinstaller():
 
 # Function to run pyinstaller command
 def run_pyinstaller_command(script_path, name, windowed=False):
-    # Get current working directory
     cwd = os.getcwd()
-    dist_path = cwd
+    dist_path = os.path.join(cwd, "dist")
     mode = "--windowed" if windowed else "--console"
+    
     command = [
         "pyinstaller",
         "--noconfirm",
@@ -24,17 +24,17 @@ def run_pyinstaller_command(script_path, name, windowed=False):
         mode,
         "--name", name,
         "--clean",
-        "--strip",
         "--noupx",
         "--distpath", dist_path,
-        "--log-level", "ERROR",  # Set log level to ERROR to disable most logging
+        "--log-level", "ERROR",  # Set log level to ERROR to disable unnecessary logs
         script_path
     ]
     
     try:
         subprocess.run(command, check=True)
+        print(f"✅ Successfully created executable for '{script_path}'")
     except subprocess.CalledProcessError as e:
-        print(f"Error running pyinstaller for '{script_path}': {e}")
+        print(f"❌ Error running pyinstaller for '{script_path}': {e}")
 
 # Function to clean up generated files and directories
 def clean_up():
@@ -47,24 +47,26 @@ def clean_up():
     # Delete build directory
     build_dir = os.path.join(cwd, "build")
     if os.path.exists(build_dir):
-        import shutil
         shutil.rmtree(build_dir)
 
 # Paths and names for your scripts
 path = os.getcwd()
 installer_script_path = os.path.join(path, "installer.py")
-download_script_path = os.path.join(path, "Application.py")
+application_script_path = os.path.join(path, "Application.py")
+
 # Install pyinstaller
-print('Installing pyinstaller...')
+print("🔧 Installing pyinstaller...")
 install_pyinstaller()
-print('Successfully installed pyinstaller')
-print('Making executable files...')
+print("✅ Successfully installed pyinstaller")
+
+print("🚀 Creating executable files...")
+
 # Run pyinstaller for installer.py
 run_pyinstaller_command(installer_script_path, "Installer")
-print('Successfully created an executable for installer.py')
-# Run pyinstaller for 3GPP_Download_and_Summary.py
-run_pyinstaller_command(download_script_path, "Application", windowed=True)
-print('Successfully created an executable for Application.py')
+
+# Run pyinstaller for Application.py (use `windowed=True` if it's a GUI)
+run_pyinstaller_command(application_script_path, "Application", windowed=False)
 
 # Clean up generated files
 clean_up()
+print("🧹 Cleanup complete. Executables are available in the 'dist' folder.")

@@ -18,15 +18,34 @@ Open Command Prompt in this folder and type:
 python generate_executables.py
 ```
 
-### Steps to run program:
-1- Run Installer.exe to install all required libraries.<br>
-2- Run Application.exe to start the program.<br>
-3- Select the desired operation: CSV to XLSX or PDF to XLSX.<br>
-4- Provide the required file paths:<br>
+### Steps to run program for Windows Users:
+1- Download & Install python: https://www.python.org/downloads/ (make sure to check on the ADD TO PATH checkbox during installation)<br>
+2- Run Installer.exe to install all required libraries.<br>
+3- Run Application.exe to start the program.<br>
+4- Select the desired operation: CSV to XLSX or PDF to XLSX.<br>
+5- Provide the required file paths:<br>
 &emsp; **For CSV to XLSX**: CSV file path and Excel file path.<br>
 &emsp; **For PDF to XLSX**: PDF file path and Excel file path.<br>
-5- Click Run.<br>
-6- Once processing is complete, the updated Excel file will be saved in the same folder as the original Excel file.<br>
+6- Click Run.<br>
+7- Once processing is complete, the updated Excel file will be saved in the same folder as the original Excel file.<br>
+
+
+## Instructions for Apple Users:
+1- Download & Install python: https://www.python.org/downloads/ (make sure to check on the ADD TO PATH checkbox during installation)<br>
+2- Navigate to the csv_to_xlsx folder.<br>
+3- Right-click inside the folder.<br>
+4- Select "Services" > "New Terminal at Folder" (on macOS Ventura or newer).<br>
+5- Terminal will open at that location.<br>
+6- Type:    python3 generate_executables.py inside the terminal, and click enter <br>
+7- Run Installer file that appears in the folder.<br>
+8- Run Application to start the program.<br>
+9- Select the desired operation: CSV to XLSX or PDF to XLSX.<br>
+10- Provide the required file paths:<br>
+&emsp; **For CSV to XLSX**: CSV file path and Excel file path.<br>
+&emsp; **For PDF to XLSX**: PDF file path and Excel file path.<br>
+11- Click Run.<br>
+12- Once processing is complete, the updated Excel file will be saved in the same folder as the original Excel file.<br>
+
 
 ### Additional Modifications:
 #### PDF to XLSX Matching Enhancements:
